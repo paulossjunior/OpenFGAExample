@@ -26,7 +26,14 @@ docker-compose up -d
 ](http://localhost:8080/stores)
 
 This endpoint will list all stores, including their IDs, which you’ll need for configuring the application
-
+## Usage
+1. Clone the Repository
+2. Configure the Program: Update baseUrl and storeId in the Program.Main method with your OpenFGA URL and the retrieved Store ID.
+3. Run the Application: ```bash dotnet run```
+4. Expected Output:
+    * Create an authorization model with user and document types.
+    *  Define read and write relationships for specific users.
+    *  Verify if users have the correct access permissions.
 ## Code Overview
 
   * OpenFGASetup Class: Sets up the authorization model and creates relationships.
@@ -35,8 +42,10 @@ This endpoint will list all stores, including their IDs, which you’ll need for
 
   * OpenFGAClient Class: Checks user permissions.
        * Check(): Verifies if a user has a specific relationship (e.g., read or write) with a document
-   
-  ```chsarp
+## Example
+Use the following example to check access permissions:  
+
+```csharp
 var client = new OpenFGAClient(baseUrl, storeId, setup.AuthorizationModelId);
 
 // Check if "user:john" has "reader" access to "document:doc1"
