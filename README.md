@@ -11,7 +11,22 @@ This repository contains a C# application for setting up an authorization model 
 ## Prerequisites
 
    * .NET SDK
+   * Docker and Docker Compose (to run OpenFGA)
    * OpenFGA instance (local or hosted), configured with a base URL and Store ID
+## Running OpenFGA with Docker Compose
+
+To run OpenFGA, use docker-compose. Ensure you have the correct docker-compose.yml file configured in your environment, then execute the command:
+```bash
+docker-compose up -d
+```
+## Creating and Accessing a Store
+1. Creating a Store: To create a store in OpenFGA, you can use the OpenFGA Playground at: [http://localhost:3000/playground](http://localhost:3000/playground
+). From the playground interface, you can create a new store and manage other configurations interactively.
+2. Retrieving the Store ID: Once the store is created, you can access its ID by making a request or visiting: [http://localhost:8080/stores
+](http://localhost:8080/stores)
+
+This endpoint will list all stores, including their IDs, which you’ll need for configuring the application
+
 ## Code Overview
 
   * OpenFGASetup Class: Sets up the authorization model and creates relationships.
